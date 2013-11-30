@@ -6,8 +6,28 @@
     </head>
     <body>
         <div id="pager">
-            <div id="planning"></div>
-            <div id="leaderboard"></div>
+            <div id="planning">
+                <div class="list">
+                    <div class="task_closed">
+                        <h3>$title</h3>
+                        <p>
+                            Due $due_time<br>
+                            Assigned to $assignee
+                        </p>
+                        <a href="#" class="expand"></a>
+                        <a href="#" class="retract"></a>
+                        <a href="#" class="button skip">Skip</a>
+                        <a href="#" class="button done">Done</a>
+                    </div>
+                </div>
+                <div id="add-task">
+                    <input class="field" type="text"></input>
+                    <input class="button" type="submit" value="&#x2713;"/>
+                </div>
+            </div>
+            <div id="leaderboard">
+                
+            </div>
             <div id="profile"></div>
         </div>
     </body>
