@@ -11,17 +11,17 @@
         <div id="pager">
             <div id="planning">
                 <div class="list">
-                    <div class="task_closed">
-                        <h3>$title</h3>
+                    <script id="tpl-task" type="text/template">
+                        <h3><%= text %></h3>
                         <p>
-                            Due $due_time<br>
-                            Assigned to $assignee
+                            Due <%= due %><br>
+                            Assigned to <%= assignee %>
                         </p>
                         <a href="#" class="expand"></a>
                         <a href="#" class="retract"></a>
                         <a href="#" class="button skip">Skip</a>
                         <a href="#" class="button done">Done</a>
-                    </div>
+                    </script>
                 </div>
                 <div id="add-task">
                     <input class="field" type="text"></input>

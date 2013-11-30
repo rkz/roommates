@@ -41,6 +41,16 @@ function buildUI ()
     console.log('Building UI');
 
     // Build planning page
+    var tpl = _.template($('#tpl-task').text());
+    for (i in data.tasks) {
+        console.log('rendering task ' + i);
+        var task = data.tasks[i];
+        $('#planning .list').append(tpl({
+            text: task.text,
+            assignee: data.users[task.assignee].name,
+            due: task.dueDate.toLocaleString()
+        }));
+    }
 
     // Build leaderboard page
 
