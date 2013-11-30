@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 101 Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+        <style>
+            #wrapper {
+                margin-top: 40px;
+            }
+
+            #pager {
+                margin: auto;
+                width: 550px;
+            }
+
+            .carousel-inner {
+                width: 480px;
+                border: gray 1px solid;
+                padding: 25px
+            }
+
+            .carousel-inner .container {
+                white-space: normal !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <script src="http://code.jquery.com/jquery.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+
+            <div id="pager" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="container">
+                            <h1>Example headline.</h1>
+                            <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                <div class="item">
+                    <div class="container">
+                        <h1>Another example headline.</h1>
+                        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <h1>One more for good measure.</h1>
+                        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#pager" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#pager" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
+<!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <!--<script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#pager').carousel()
+        })
+      }(window.jQuery)
+  </script>-->
+    </body>
+</html>
