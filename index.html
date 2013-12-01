@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="pager">
-            <div id="planning">
+            <div id="planning" class="page">
                 <div class="list">
                     <script id="tpl-task" type="text/template">
                       <div class="task" id="task-<%= taskId %>">
@@ -24,15 +24,15 @@
                         </p>
                         <a href="#" class="expand"></a>
                         <a href="#" class="retract"></a>
-                        <a href="#" class="button skip">Skip</a>
-                        <a href="#" class="button done">Done</a>
+                        <a href="#" class="btn btn-danger skip">Skip</a>
+                        <a href="#" class="btn btn-success done"><i class="icon-ok icon-white"></i> Done</a>
                       </div>
                     </script>
                 </div>
-                <div id="add-task">
-                    <input class="field" type="text" id="add-task-name">
-                    <button class="btn btn-primary" id="btn-add-task">&#x2713;</button>
-                </div>
+                <form id="add-task" class="form-inline">
+                    <input class="field" type="text" id="add-task-name" placeholder="Add a task...">
+                    <button type="submit" class="btn btn-primary" id="btn-add-task"><i class="icon-plus icon-white"></i></button>
+                </form>
                 <div id="add-task-details">
                     <p>Assignee: <select id="add-task-assignee"></select></p>
                     <p>Due date: <input type="text" id="add-task-due"></p>
@@ -40,7 +40,7 @@
                     <p><button class="btn btn-primary" id="btn-do-add-task">Add task</button></p>
                 </div>
             </div>
-            <div id="leaderboard">
+            <div id="leaderboard" class="page">
                 <div class="list">
                     <script id="tpl-rank" type="text/template">
                         <div class="rank" id="rank-<%= userId %>">
@@ -57,7 +57,7 @@
                     </script>
                 </div>
             </div>
-            <div id="profile">
+            <div id="profile" class="page">
                 <script id="tpl-profile-header" type="text/template">
                     <div class="profile-header">
                         <img class="avatar" src="img/<%= picture %>.png" />

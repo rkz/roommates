@@ -2,13 +2,35 @@ a:hover {
     text-decoration: none;
 }
 
+#pager {
+    width: 1206;
+    padding: 0;
+    position: absolute;
+}
+
+.page {
+    width: 402px;
+}
+
+#planning {
+    position: absolute;
+    left: 0;
+}
+
+#leaderboard {
+    position: absolute;
+    left: 402px;
+}
+
+#profile {
+    position: absolute;
+    left: 804px;
+}
+
 .skip {
-    color: #F2C7C7;
-    background-color: #E06666;
 }
 
 .skip:hover {
-    background-color: #FB8C8C;
 }
 
 .done {
