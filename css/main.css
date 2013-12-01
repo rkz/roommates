@@ -20,8 +20,7 @@ body {
 }
 
 .page {
-    background: transparent;
-    min-height: 577px;
+    min-height: 527px;
     width: 400px;
 }
 
@@ -62,7 +61,7 @@ body {
 
 #add-task {
     position: absolute;
-    bottom: -210px;
+    bottom: -200px;
     left: 0px;
     width: 100%;
     
@@ -125,4 +124,18 @@ body {
     padding: 10px;
     font-size: 130%;
     z-index: 1000;
+}
+
+#ads {
+    position: absolute;
+    left: 0;
+    width: 382px;
+    height: 40px;
+    bottom: 0;
+    background-color: #eeeeee;
+    text-align: center;
+    padding: 10px;
+    font-size: 110%;
+    z-index: 1000;
+    color: #483D8B;
 }

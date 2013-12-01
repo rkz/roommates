@@ -263,7 +263,7 @@ function doAddTask ()
     data.tasks.push(task);
 
     // reset adding form state
-    $('#add-task').animate({ bottom: -210 }, 1000);
+    $('#add-task').animate({ bottom: -200 }, 1000);
     $('#add-task-name').val('');
 
     buildUI();
