@@ -14,8 +14,8 @@ a:hover {
 }
 
 .page {
-    width: 392px;
-    padding: 10px;
+    min-height: 577px;
+    width: 400px;
 }
 
 #planning {
@@ -23,8 +23,23 @@ a:hover {
     left: 0;
 }
 
+#planning .list {
+    overflow-y: scroll;
+    height: 100%;
+    width: 350px;
+    padding: 0 25px;
+    position: absolute;
+}
+
 #add-task {
-    background: #888
+    position: absolute;
+    bottom: -210px;
+    left: 0px;
+    width: 100%;
+    
+    border: #888 1px solid;
+    border-radius: 5px;
+    background: #B9B5B5;
 }
 
 #add-task div.form-inline {
@@ -32,7 +47,20 @@ a:hover {
 }
 
 #add-task label {
-    width: 60px;
+    width: 70px;
+}
+
+#add-task input {
+    width: 290px
+}
+
+#add-task select {
+    width: 304px
+}
+
+#add-task fieldset {
+    text-align: center;
+    margin: 20px 0;
 }
 
 #leaderboard {
