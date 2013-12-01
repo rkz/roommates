@@ -1,0 +1,20 @@
+a:hover {
+    text-decoration: none;
+}
+
+.skip {
+    color: #F2C7C7;
+    background-color: #E06666;
+}
+
+.skip:hover {
+    background-color: #FB8C8C;
+}
+
+.done {
+
+}
+
+.done:hover {
+    
+}
