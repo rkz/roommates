@@ -29,16 +29,19 @@
                       </div>
                     </script>
                 </div>
-                <form id="add-task" class="form-inline">
-                    <input class="field" type="text" id="add-task-name" placeholder="Add a task...">
-                    <button type="submit" class="btn btn-primary" id="btn-add-task"><i class="icon-plus icon-white"></i></button>
+
+                <form id="add-task"> 
+                    <fieldset class="form-inline">
+                        <input class="field" type="text" id="add-task-name" placeholder="Add a task...">
+                        <button type="submit" class="btn btn-primary" id="btn-add-task"><i class="icon-plus icon-white"></i></button>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-inline"><label>Assignee:</label> <select id="add-task-assignee"></select></div>
+                        <div class="form-inline"><label>Due date: </label> <input type="text" id="add-task-due"></div>
+                        <div class="form-inline"><label>Value:</label> <input type="text" id="add-task-value"></div>
+                        <div class="form-inline"><button class="btn btn-primary" id="btn-do-add-task">Add task</button></div>
+                    </fieldset>
                 </form>
-                <div id="add-task-details">
-                    <p>Assignee: <select id="add-task-assignee"></select></p>
-                    <p>Due date: <input type="text" id="add-task-due"></p>
-                    <p>Value: <input type="text" id="add-task-value"></p>
-                    <p><button class="btn btn-primary" id="btn-do-add-task">Add task</button></p>
-                </div>
             </div>
             <div id="leaderboard" class="page">
                 <div class="list">
