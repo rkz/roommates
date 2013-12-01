@@ -159,6 +159,19 @@ function buildProfile ()
     }
 }
 
+// Set page (planning, leaderboard or profile)
+function slideToPage (pageName)
+{
+    var targetX;
+    switch (pageName) {
+        case 'planning': targetX = 0; break;
+        case 'leaderboard': targetX = -402; break;
+        case 'profile': targetX = -804; break;
+    }
+
+    $('#pager').animate({ left: targetX }, 1000);
+}
+
 // Do or skip a task, and rebuild UI
 function doOrSkipTask (id, skip)
 {
@@ -209,4 +222,5 @@ function doAddTask ()
 // Initialization
 $(document).ready(function () {
     buildUI();
+    window.slideToPage = slideToPage;
 });
