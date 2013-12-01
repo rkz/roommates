@@ -59,8 +59,7 @@ a:hover {
 }
 
 #add-task fieldset {
-    text-align: center;
-    margin: 20px 0;
+    margin: 20px 0 20px 10px;
 }
 
 #leaderboard {
@@ -85,4 +84,16 @@ a:hover {
 
 .done:hover {
     
+}
+
+#notification {
+    position: absolute;
+    left: 0;
+    width: 382px;
+    top: 0;
+    background-color: #fcf8e3;
+    text-align: center;
+    padding: 10px;
+    font-size: 130%;
+    z-index: 1000;
 }

@@ -191,6 +191,13 @@ function doOrSkipTask (id, skip)
     $('#task-'+id).fadeOut(function () {
         // évolution du score
         user.score += delta;
+
+        // notification
+        if (delta > 0)
+            notify('Congrats! you just earned ' + delta + ' points.');
+        else
+            notify('Ooh no... you just lose ' + (-delta) + ' points.');
+
         // retirer la tâche de la liste
         data.tasks.splice(id, 1);
 
@@ -249,9 +256,18 @@ function doAddTask ()
     buildUI();
 }
 
+// Show notification
+function notify (html)
+{
+    $('#notification').html(html);
+    $('#notification').slideDown();
+    setTimeout(function () { $('#notification').slideUp(); }, 1500);
+}
+
 
 // Initialization
 $(document).ready(function () {
     buildUI();
     window.slideToPage = slideToPage;
+    $('#notification').hide();
 });
