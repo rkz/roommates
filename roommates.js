@@ -12,15 +12,15 @@ var data = {
             score: 53,
             currentBadge: 0,
             otherBadges: [
-                { badgeId: 0, progress: 100 },
-                { badgeId: 1, progress: 80 }
+                { badgeId: 0, progress: 80 },
+                { badgeId: 1, progress: 60 }
             ]
         },
         { // User 1
             //id: 'marie',
             name: 'Marie',
             picture: 'marie.png',
-            score: 21,
+            score: 89,
             currentBadge: 1,
             otherBadges: [
                 { badgeId: 0, progress: 40 },
@@ -31,7 +31,7 @@ var data = {
             name: 'Michael',
             picture: 'michael.jpg',
             score: 32,
-            currentBadge: 1,
+            currentBadge: 2,
             otherBadges: []
         }
     ],
@@ -46,16 +46,10 @@ var data = {
             dueDate: 'in 2 days'
         },
         {
-            text: 'Make sandwiches',
+            text: 'Buy a new tool set',
             value: 10,
             assignee: 0,
             dueDate: 'in 3 days'
-        },
-        {
-            text: 'Buy a new tool set',
-            value: 40,
-            assignee: 1,
-            dueDate: 'in 4 days'
         }
     ],
 
@@ -65,7 +59,11 @@ var data = {
             picture: 'dummy.png'
         },
         { // badge 1
-            name: 'Super chef',
+            name: 'Starred chef',
+            picture: 'dummy.png'
+        },
+        { // badge 2
+            name: 'Shopping angel',
             picture: 'dummy.png'
         }
     ]
@@ -280,6 +278,7 @@ function notify (html)
 
 // Initialization
 $(document).ready(function () {
+    console.log('LOAD');
     buildUI();
     window.slideToPage = slideToPage;
     $('#notification').hide();
