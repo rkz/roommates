@@ -6,7 +6,7 @@ a:hover {
 }
 
 body {
-    background: url('../img/bg2.png');
+    background: url('../img/bg3.png');
 }
 
 #pager {
@@ -29,7 +29,7 @@ body {
     left: 0;
 }
 
-.task, .rank {
+.task, .rank, .medal {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 10px;
@@ -43,6 +43,9 @@ body {
 .rank img {
     float: left;
     margin-left: -70px;
+}
+
+.avatar {
     width: 60px;
     height: 60px;
 }
@@ -51,8 +54,8 @@ body {
     float: right;
 }
 
-#planning .list, #leaderboard .list {
-    overflow-y: scroll;
+.list {
+    overflow-y: hidden;
     height: 100%;
     width: 382px;
     padding: 0 10px;
@@ -95,9 +98,42 @@ body {
     left: 402px;
 }
 
+#leaderboard .list {
+    overflow-y: hidden;
+}
+
 #profile {
     position: absolute;
     left: 804px;
+}
+
+#profile img {
+    float: left;
+    margin-left: -70px;
+}
+
+#profile .profile-header {
+    background: rgba(255,255,255,0.7);
+    padding: 20px;
+    padding-left: 90px;
+    margin-bottom: 0px;
+}
+
+#profile hr {
+    margin-top: 0;
+}
+
+#profile .list {
+    height: 300px;
+    overflow-y: hidden;
+}
+
+#profile h3 {
+    margin-left: 30px;
+}
+
+.medal button {
+    float: right;
 }
 
 .skip {

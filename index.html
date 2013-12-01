@@ -63,7 +63,7 @@
             <div id="profile" class="page">
                 <script id="tpl-profile-header" type="text/template">
                     <div class="profile-header">
-                        <img class="avatar" src="img/<%= picture %>.png" />
+                        <img class="avatar img-circle" src="img/<%= picture %>" />
                         <div>
                             <h4><%= name %></h4>
                             <h3>Current badge :</h3>
@@ -76,10 +76,9 @@
                 <h3>Available badges : </h3>
                 <div class="list">
                     <script id="tpl-profile-badge" type="text/template">
-                        <div class="badge" id="badge-<%= badgeId %>">
-                            <h4><%= badge %></h4>
+                        <div class="medal" id="badge-<%= badgeId %>">
+                            <h4><%= badge %><button class="btn">Use</button></h4>
                             <div class="progress"><div class="bar"></div></div>
-                            <input class="button" type="submit" value="Use" />
                         </div>
                     </script>
                 </div>
