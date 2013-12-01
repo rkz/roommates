@@ -124,6 +124,10 @@ function buildLeaderboard ()
             title: data.badges[user.currentBadge].name,
             score: user.score
         }));
+
+        var w = (user.score / data.users[data.currentUser].score) * 50;
+        console.log('w = ' + w);
+        $('#leaderboard #rank-' + i + ' .bar').css('width', w + '%');
     }
 }
 
