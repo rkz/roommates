@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#slide-planning').click(function () {
+                    document.getElementById('phoneScreen').contentWindow.slideToPage('planning');
+                });
+                $('#slide-leaderboard').click(function () {
+                    document.getElementById('phoneScreen').contentWindow.slideToPage('leaderboard');
+                });
+                $('#slide-profile').click(function () {
+                    document.getElementById('phoneScreen').contentWindow.slideToPage('profile');
+                });
+            });
+        </script>
         <style>
             body {
-                background-color: #B9B5B5;
+                background-color: green;
             }
             
             #phone {
@@ -29,12 +43,27 @@
                 border: 0;
                 overflow: hidden;
             }
+
+            #navigation {
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            #navigation a {
+                margin-left: 40px;
+            }
         </style>
     </head>
     <body>
+        <div id="navigation">
+            <a href="#" id="slide-planning">PLANNING</a>
+            <a href="#" id="slide-leaderboard">LEADERBOARD</a>
+            <a href="#" id="slide-profile">PROFILE</a>
+        </div>
         <div id="phone">
             <img src="img/iphone-bg.png" alt=""/>
-            <iframe src="index.html" />
+            <iframe src="index.html" id="phoneScreen" />
         </div>
     </body>
 </html>
