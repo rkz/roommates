@@ -5,8 +5,14 @@ a:hover {
 .inline {
 }
 
+body {
+    background: url('../img/bg2.png');
+}
+
 #pager {
-    width: 1206;
+    background: transparent;
+    width: 1206px;
+    height: 100%;
     padding: 0;
     position: absolute;
     top: 0;
@@ -14,6 +20,7 @@ a:hover {
 }
 
 .page {
+    background: transparent;
     min-height: 577px;
     width: 400px;
 }
@@ -23,11 +30,33 @@ a:hover {
     left: 0;
 }
 
-#planning .list {
+.task, .rank {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    margin: 5px;
+}
+
+.rank {
+    padding-left: 80px;
+}
+
+.rank img {
+    float: left;
+    margin-left: -70px;
+    width: 60px;
+    height: 60px;
+}
+
+.num {
+    float: right;
+}
+
+#planning .list, #leaderboard .list {
     overflow-y: scroll;
     height: 100%;
-    width: 350px;
-    padding: 0 25px;
+    width: 382px;
+    padding: 0 10px;
     position: absolute;
 }
 
