@@ -220,6 +220,10 @@ function showAddTaskForm ()
     }
     $('#add-task-details input').val('');
 
+    // slide up
+    $('#btn-add-task').hide();
+    $('#add-task').animate({ bottom: 0 }, 1000);
+
     // button callback
     $('#btn-do-add-task').off().click(doAddTask);
 }
@@ -237,6 +241,11 @@ function doAddTask ()
     console.log(task);
 
     data.tasks.push(task);
+
+    // reset adding form state
+    $('#add-task').animate({ bottom: -210 }, 1000);
+    $('#add-task-name').val('');
+
     buildUI();
 }
 
