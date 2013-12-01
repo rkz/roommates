@@ -30,8 +30,14 @@
                     </script>
                 </div>
                 <div id="add-task">
-                    <input class="field" type="text"></input>
-                    <input class="button" type="submit" value="&#x2713;"/>
+                    <input class="field" type="text" id="add-task-name">
+                    <button class="btn btn-primary" id="btn-add-task">&#x2713;</button>
+                </div>
+                <div id="add-task-details">
+                    <p>Assignee: <select id="add-task-assignee"></select></p>
+                    <p>Due date: <input type="text" id="add-task-due"></p>
+                    <p>Value: <input type="text" id="add-task-value"></p>
+                    <p><button class="btn btn-primary" id="btn-do-add-task">Add task</button></p>
                 </div>
             </div>
             <div id="leaderboard">

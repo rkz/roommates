@@ -95,6 +95,8 @@ function buildPlanning ()
         // task actions
         setupTaskCallbacks(i);
     }
+
+    $('#btn-add-task').off().click(showAddTaskForm);
 }
 
 function setupTaskCallbacks (i)
@@ -164,6 +166,41 @@ function doOrSkipTask (id, skip)
         buildUI();
     });
 }
+
+// Add task - step1: show the form
+function showAddTaskForm ()
+{
+    var form = $('#add-task-form');
+
+    // cleanup form
+    $('#add-task-assignee option').remove();
+    $('#add-task-assignee').append('<option value="">Choose a flatmate...</option>');
+    for (i in data.users) {
+        var user = data.users[i];
+        $('#add-task-assignee').append('<option value="' + i + '">' + user.name + '</option>')
+    }
+    $('#add-task-details input').val('');
+
+    // button callback
+    $('#btn-do-add-task').off().click(doAddTask);
+}
+
+// Add task - step2: add the task
+function doAddTask ()
+{
+    var task = {
+        text: $('#add-task-name').val(),
+        value: parseInt($('#add-task-value').val()),
+        assignee: parseInt($('#add-task-assignee option:selected').prop('value')),
+        dueDate: $('#add-task-due').val()
+    };
+
+    console.log(task);
+
+    data.tasks.push(task);
+    buildUI();
+}
+
 
 // Initialization
 $(document).ready(function () {
