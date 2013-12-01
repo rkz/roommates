@@ -98,6 +98,12 @@ function buildPlanning ()
             due: task.dueDate
         }));
 
+        // hide action buttons if the assignee is not the current user
+        if (task.assignee != data.currentUser) {
+            $('#task-' + i + ' .skip').hide();
+            $('#task-' + i + ' .done').hide();
+        }
+
         // task actions
         setupTaskCallbacks(i);
     }
