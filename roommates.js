@@ -8,12 +8,14 @@ var data = {
         { // User 0
             //id: 'cameron',
             name: 'Cameron',
-            picture: 'img/user.jpg'
+            picture: 'img/user.jpg',
+            score: 53
         },
         { // User 1
             //id: 'marie',
             name: 'Marie',
-            picture: 'img/marie.jpg'
+            picture: 'img/marie.jpg',
+            score: 21
         }
     ],
 
@@ -47,6 +49,19 @@ function buildUI ()
     console.log('Building UI');
 
     // Build planning page
+    buildPlanning();
+
+    // Build leaderboard page
+    buildLeaderboard();
+
+    // Build profile page
+
+}
+
+function buildPlanning ()
+{
+    console.log('building planning page');
+
     var tpl = _.template($('#tpl-task').text());
     $('#planning .list .task').remove();
 
@@ -65,17 +80,34 @@ function buildUI ()
         // task actions
         setupTaskCallbacks(i);
     }
-
-    // Build leaderboard page
-
-    // Build profile page
-
 }
 
 function setupTaskCallbacks (i)
 {
     $('#task-' + i + ' .skip').click(function () { console.log('click skip ' + i); doOrSkipTask(i, true); });
     $('#task-' + i + ' .done').click(function () { console.log('click done ' + i); doOrSkipTask(i); });
+}
+
+function buildLeaderboard ()
+{
+    console.log('building leaderboard page');
+
+    var tpl = _.template($('#tpl-rank').text());
+    $('#leaderboard .list .rank').remove();
+
+    for (i in data.users) {
+        console.log('rendering user ' + i + ' in leaderboard');
+        var user = data.users[i];
+
+        // user markup
+        $('#leaderboard .list').append(tpl({
+            userId: i,
+            picture: user.picture,
+            name: user.name,
+            title: '',
+            score: user.score
+        }));
+    }
 }
 
 // Do or skip a task, and rebuild UI
