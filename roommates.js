@@ -11,7 +11,10 @@ var data = {
             picture: 'img/user.jpg',
             score: 53,
             currentBadge: 0,
-            availableBadges: [0, 1]
+            otherBadges: [
+                { badgeId: 0, progress: 100 },
+                { badgeId: 1, progress: 80 }
+            ]
         },
         { // User 1
             //id: 'marie',
@@ -19,7 +22,10 @@ var data = {
             picture: 'img/marie.jpg',
             score: 21,
             currentBadge: 1,
-            availableBadges: [0, 1]
+            otherBadges: [
+                { badgeId: 0, progress: 40 },
+                { badgeId: 1, progress: 60 }
+            ]
         }
     ],
 
@@ -35,7 +41,7 @@ var data = {
         {
             text: 'Make sandwiches',
             value: 10,
-            assignee: 1,
+            assignee: 0,
             dueDate: 'in 3 days'
         },
         {
@@ -126,7 +132,6 @@ function buildLeaderboard ()
         }));
 
         var w = (user.score / data.users[data.currentUser].score) * 50;
-        console.log('w = ' + w);
         $('#leaderboard #rank-' + i + ' .bar').css('width', w + '%');
     }
 }
@@ -150,12 +155,15 @@ function buildProfile ()
     // Badges
     var tplBadge = _.template($('#tpl-profile-badge').text());
     $('#profile .list .badge').remove();
-    for (i in user.availableBadges) {
-        var badge = data.badges[i];
+    for (i in user.otherBadges) {
+        var badgeId = user.otherBadges[i].badgeId;
+        var badge = data.badges[badgeId];
         $('#profile .list').append(tplBadge({
-            badgeId: i,
+            badgeId: badgeId,
             badge: badge.name
         }));
+        console.log('progress: ' + user.otherBadges[i].progress);
+        $('#badge-' + badgeId + ' .bar').css('width', user.otherBadges[i].progress + '%');
     }
 }
 
@@ -177,9 +185,23 @@ function doOrSkipTask (id, skip)
 {
     console.log('task ' + id + ' ' + (skip ? 'skipped' : 'done'));
     var task = data.tasks[id];
+    var user = data.users[task.assignee];
+    var delta = (skip ? (-task.value) : (task.value));
+
     $('#task-'+id).fadeOut(function () {
-        data.users[task.assignee].score += skip ? -task.value : task.value;
+        // évolution du score
+        user.score += delta;
+        // retirer la tâche de la liste
         data.tasks.splice(id, 1);
+
+        // si la tâche est done, faire évoluer les badges
+        if (!skip) {
+            for (i in user.otherBadges) {
+                console.log('increasing badge ' + i);
+                user.otherBadges[i].progress = Math.min(100, user.otherBadges[i].progress + 25);
+            }
+        }
+
         buildUI();
     });
 }
