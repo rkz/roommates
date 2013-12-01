@@ -50,18 +50,27 @@
                 </div>
             </div>
             <div id="profile">
-                <img class="avatar" src="img/<%= avatar %>.png" />
-                <div>
-                    <h3>Current badge :</h3>
-                    <h4><%= badge %></h4>
-                    <img class="icon" src="img/<%= current_badge %>" />
-                </div>
+                <script id="tpl-profile-header" type="text/template">
+                    <div class="profile-header">
+                        <img class="avatar" src="img/<%= picture %>.png" />
+                        <div>
+                            <h4><%= name %></h4>
+                            <h3>Current badge :</h3>
+                            <h4><%= badge %></h4>
+                            <img class="icon" src="img/<%= badgePicture %>" />
+                        </div>
+                    </div>
+                </script>
                 <hr class="dashed">
                 <h3>Available badges : </h3>
                 <div class="list">
-                    <h4><%= badge %></h4>
-                    <div class="progress"></div>
-                    <input class="button" type="submit" value="Use" />
+                    <script id="tpl-profile-badge" type="text/template">
+                        <div class="badge" id="badge-<%= badgeId %>">
+                            <h4><%= badge %></h4>
+                            <div class="progress"></div>
+                            <input class="button" type="submit" value="Use" />
+                        </div>
+                    </script>
                 </div>
             </div>
         </div>

@@ -55,7 +55,7 @@ function buildUI ()
     buildLeaderboard();
 
     // Build profile page
-
+    buildProfile();
 }
 
 function buildPlanning ()
@@ -108,6 +108,26 @@ function buildLeaderboard ()
             score: user.score
         }));
     }
+}
+
+function buildProfile ()
+{
+    console.log("building current user's profile");
+
+    var user = data.users[data.currentUser];
+
+    // Profile header
+    var tpl = _.template($('#tpl-profile-header').text());
+    $('#profile .profile-header').remove();
+    $('#profile').prepend(tpl({
+        name: user.name,
+        picture: user.picture,
+        badge: '',
+        badgePicture: 'dummy.jpg'
+    }));
+
+    // Badges
+
 }
 
 // Do or skip a task, and rebuild UI
