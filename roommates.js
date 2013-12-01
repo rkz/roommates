@@ -46,7 +46,7 @@ var data = {
             dueDate: 'in 2 days'
         },
         {
-            text: 'Buy a new tool set',
+            text: "Buy Seb's birthday gift",
             value: 10,
             assignee: 0,
             dueDate: 'in 3 days'
