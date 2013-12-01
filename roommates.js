@@ -9,13 +9,17 @@ var data = {
             //id: 'cameron',
             name: 'Cameron',
             picture: 'img/user.jpg',
-            score: 53
+            score: 53,
+            currentBadge: 0,
+            availableBadges: [0, 1]
         },
         { // User 1
             //id: 'marie',
             name: 'Marie',
             picture: 'img/marie.jpg',
-            score: 21
+            score: 21,
+            currentBadge: 1,
+            availableBadges: [0, 1]
         }
     ],
 
@@ -39,6 +43,17 @@ var data = {
             value: 40,
             assignee: 1,
             dueDate: 'in 4 days'
+        }
+    ],
+
+    badges: [
+        { // badge 0
+            name: 'Cleanup avoider',
+            picture: 'dummy.png'
+        },
+        { // badge 1
+            name: 'Super chef',
+            picture: 'dummy.png'
         }
     ]
 };
@@ -104,7 +119,7 @@ function buildLeaderboard ()
             userId: i,
             picture: user.picture,
             name: user.name,
-            title: '',
+            title: data.badges[user.currentBadge].name,
             score: user.score
         }));
     }
@@ -117,17 +132,25 @@ function buildProfile ()
     var user = data.users[data.currentUser];
 
     // Profile header
-    var tpl = _.template($('#tpl-profile-header').text());
+    var tplHeader = _.template($('#tpl-profile-header').text());
     $('#profile .profile-header').remove();
-    $('#profile').prepend(tpl({
+    $('#profile').prepend(tplHeader({
         name: user.name,
         picture: user.picture,
-        badge: '',
+        badge: data.badges[user.currentBadge].name,
         badgePicture: 'dummy.jpg'
     }));
 
     // Badges
-
+    var tplBadge = _.template($('#tpl-profile-badge').text());
+    $('#profile .list .badge').remove();
+    for (i in user.availableBadges) {
+        var badge = data.badges[i];
+        $('#profile .list').append(tplBadge({
+            badgeId: i,
+            badge: badge.name
+        }));
+    }
 }
 
 // Do or skip a task, and rebuild UI
