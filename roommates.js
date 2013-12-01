@@ -8,7 +8,7 @@ var data = {
         { // User 0
             //id: 'cameron',
             name: 'Cameron',
-            picture: 'img/user.jpg',
+            picture: 'cameron.jpg',
             score: 53,
             currentBadge: 0,
             otherBadges: [
@@ -19,13 +19,20 @@ var data = {
         { // User 1
             //id: 'marie',
             name: 'Marie',
-            picture: 'img/marie.jpg',
+            picture: 'marie.png',
             score: 21,
             currentBadge: 1,
             otherBadges: [
                 { badgeId: 0, progress: 40 },
                 { badgeId: 1, progress: 60 }
             ]
+        },
+        { // User 2
+            name: 'Michael',
+            picture: 'michael.jpg',
+            score: 32,
+            currentBadge: 1,
+            otherBadges: []
         }
     ],
 
