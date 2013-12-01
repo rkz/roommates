@@ -12,6 +12,7 @@
             <div id="planning">
                 <div class="list">
                     <script id="tpl-task" type="text/template">
+                      <div class="task" id="task-<%= taskId %>">
                         <h3><%= text %></h3>
                         <p>
                             Due <%= due %><br>
@@ -21,6 +22,7 @@
                         <a href="#" class="retract"></a>
                         <a href="#" class="button skip">Skip</a>
                         <a href="#" class="button done">Done</a>
+                      </div>
                     </script>
                 </div>
                 <div id="add-task">

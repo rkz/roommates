@@ -24,13 +24,19 @@ var data = {
             text: 'Bathroom cleanup',
             value: 20,
             assignee: 0,
-            dueDate: new Date(2013, 12, 02)
+            dueDate: 'in 2 days'
         },
         {
             text: 'Make sandwiches',
             value: 10,
             assignee: 1,
-            dueDate: new Date(2013, 12, 01)
+            dueDate: 'in 3 days'
+        },
+        {
+            text: 'Buy a new tool set',
+            value: 40,
+            assignee: 1,
+            dueDate: 'in 4 days'
         }
     ]
 };
@@ -42,14 +48,22 @@ function buildUI ()
 
     // Build planning page
     var tpl = _.template($('#tpl-task').text());
+    $('#planning .list .task').remove();
+
     for (i in data.tasks) {
         console.log('rendering task ' + i);
         var task = data.tasks[i];
+
+        // task markup
         $('#planning .list').append(tpl({
+            taskId: i,
             text: task.text,
             assignee: data.users[task.assignee].name,
-            due: task.dueDate.toLocaleString()
+            due: task.dueDate
         }));
+
+        // task actions
+        setupTaskCallbacks(i);
     }
 
     // Build leaderboard page
@@ -58,5 +72,25 @@ function buildUI ()
 
 }
 
+function setupTaskCallbacks (i)
+{
+    $('#task-' + i + ' .skip').click(function () { console.log('click skip ' + i); doOrSkipTask(i, true); });
+    $('#task-' + i + ' .done').click(function () { console.log('click done ' + i); doOrSkipTask(i); });
+}
+
+// Do or skip a task, and rebuild UI
+function doOrSkipTask (id, skip)
+{
+    console.log('task ' + id + ' ' + (skip ? 'skipped' : 'done'));
+    var task = data.tasks[id];
+    $('#task-'+id).fadeOut(function () {
+        data.users[task.assignee].score += skip ? -task.value : task.value;
+        data.tasks.splice(id, 1);
+        buildUI();
+    });
+}
+
 // Initialization
-$(document).ready(buildUI);
+$(document).ready(function () {
+    buildUI();
+});
