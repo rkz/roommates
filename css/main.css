@@ -2,6 +2,9 @@ a:hover {
     text-decoration: none;
 }
 
+.inline {
+}
+
 #pager {
     width: 1206;
     padding: 0;
@@ -11,12 +14,25 @@ a:hover {
 }
 
 .page {
-    width: 402px;
+    width: 392px;
+    padding: 10px;
 }
 
 #planning {
     position: absolute;
     left: 0;
+}
+
+#add-task {
+    background: #888
+}
+
+#add-task div.form-inline {
+    margin-bottom: 10px;
+}
+
+#add-task label {
+    width: 60px;
 }
 
 #leaderboard {
