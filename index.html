@@ -36,15 +36,17 @@
             </div>
             <div id="leaderboard">
                 <div class="list">
-                    <div class="rank">
-                        <img class="avatar" src="img/<%= picture %>.png" alt="" />
-                        <h3><%= name %></h3>
-                        <h4><%= title %></h4>
-                        <div class="points">
-                            <div class="progress"></div>
-                            <div class="num"><%= points %></div>
+                    <script id="tpl-rank" type="text/template">
+                        <div class="rank" id="rank-<%= userId %>">
+                            <img class="avatar" src="img/<%= picture %>.png" alt="" />
+                            <h3><%= name %></h3>
+                            <h4><%= title %></h4>
+                            <div class="points">
+                                <div class="progress"></div>
+                                <div class="num"><%= score %></div>
+                            </div>
                         </div>
-                    </div>
+                    </script>
                 </div>
             </div>
             <div id="profile">
